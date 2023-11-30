@@ -1,6 +1,6 @@
-<script setup>
-import AuthProvider from '@/views/pages/authentication/AuthProvider.vue'
-import logo from '@images/logo.svg?raw'
+﻿<script setup>
+import AuthProvider from '@/views/pages/authentication/AuthProvider.vue';
+import logo from '@images/logo.svg?raw';
 
 const form = ref({
   email: '',

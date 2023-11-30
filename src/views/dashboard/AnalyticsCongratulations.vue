@@ -1,7 +1,7 @@
 <script setup>
-import { useTheme } from 'vuetify'
-import illustrationJohnDark from '@images/cards/illustration-john-dark.png'
-import illustrationJohnLight from '@images/cards/illustration-john-light.png'
+import illustrationJohnDark from '@images/cards/illustration-john-dark.png';
+import illustrationJohnLight from '@images/cards/illustration-john-light.png';
+import { useTheme } from 'vuetify';
 
 const { global } = useTheme()
 const illustrationJohn = computed(() => global.name.value === 'dark' ? illustrationJohnDark : illustrationJohnLight)
@@ -18,23 +18,23 @@ const illustrationJohn = computed(() => global.name.value === 'dark' ? illustrat
       >
         <VCardItem>
           <VCardTitle class="text-md-h5 text-primary">
-            Congratulations John! 🎉
+            Добро пожаловать в панель Администратора! 🎉
           </VCardTitle>
         </VCardItem>
 
         <VCardText>
           <span>
-            You have done 72% 🤩 more sales today.
+            Здесь вы найдете полезные инструменты и ресурсы для эффективного управления.
             <br>
-            Check your new raising badge in your profile.
+            Мы постоянно обновляем наши инструменты и ресурсы, чтобы обеспечить вас всем необходимым для удобного администрирования.
           </span>
           <br>
           <VBtn
-            variant="tonal"
+             variant="tonal"
             class="mt-4"
             size="small"
           >
-            View Badges
+            Пройти мини-игру
           </VBtn>
         </VCardText>
       </VCol>

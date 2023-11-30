@@ -1,10 +1,12 @@
 <script setup>
-import VueApexCharts from 'vue3-apexcharts'
+import { hexToRgb } from '@layouts/utils';
+import VueApexCharts from 'vue3-apexcharts';
 import {
-  useDisplay,
-  useTheme,
-} from 'vuetify'
-import { hexToRgb } from '@layouts/utils'
+useDisplay,
+useTheme,
+} from 'vuetify';
+
+
 
 const vuetifyTheme = useTheme()
 const display = useDisplay()
@@ -81,16 +83,31 @@ const chartOptions = computed(() => {
 })
 </script>
 
+<script>
+export default {
+  methods: {
+    currentDateTime() {
+      const current = new Date();
+      const date = current.getFullYear()+'.'+(current.getMonth()+1)+'.'+current.getDate();
+      const time = current.getHours() + ":" + current.getMinutes();
+      const dateTime = date +' '+ time;
+
+      return dateTime;
+    }
+  }
+};
+</script>
+
 <template>
   <VCard>
     <VCardText class="d-flex justify-space-between h-100">
       <div class="d-flex flex-column justify-space-between gap-y-4">
         <div>
           <h6 class="text-h6 text-no-wrap mb-1">
-            Profile Report
+            Статистика за неделю
           </h6>
           <VChip color="warning">
-            Year 2022
+            {{currentDateTime()}}
           </VChip>
         </div>
 
@@ -101,11 +118,11 @@ const chartOptions = computed(() => {
               size="18"
               class="me-1"
             />
-            <span>68.2%</span>
+            <span>249</span>
           </div>
 
           <h5 class="text-h5">
-            $84,686k
+            2000
           </h5>
         </div>
       </div>

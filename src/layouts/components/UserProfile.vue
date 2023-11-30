@@ -1,5 +1,5 @@
 <script setup>
-import avatar1 from '@images/avatars/avatar-1.png'
+import avatar1 from '@images/avatars/avatar-1.png';
 </script>
 
 <template>
@@ -54,21 +54,8 @@ import avatar1 from '@images/avatars/avatar-1.png'
           </VListItem>
           <VDivider class="my-2" />
 
-          <!-- 👉 Profile -->
-          <VListItem link>
-            <template #prepend>
-              <VIcon
-                class="me-2"
-                icon="bx-user"
-                size="22"
-              />
-            </template>
-
-            <VListItemTitle>Profile</VListItemTitle>
-          </VListItem>
-
           <!-- 👉 Settings -->
-          <VListItem link>
+          <VListItem to="/account-settings">
             <template #prepend>
               <VIcon
                 class="me-2"
@@ -77,33 +64,7 @@ import avatar1 from '@images/avatars/avatar-1.png'
               />
             </template>
 
-            <VListItemTitle>Settings</VListItemTitle>
-          </VListItem>
-
-          <!-- 👉 Pricing -->
-          <VListItem link>
-            <template #prepend>
-              <VIcon
-                class="me-2"
-                icon="bx-dollar"
-                size="22"
-              />
-            </template>
-
-            <VListItemTitle>Pricing</VListItemTitle>
-          </VListItem>
-
-          <!-- 👉 FAQ -->
-          <VListItem link>
-            <template #prepend>
-              <VIcon
-                class="me-2"
-                icon="bx-help-circle"
-                size="22"
-              />
-            </template>
-
-            <VListItemTitle>FAQ</VListItemTitle>
+            <VListItemTitle>Настройка</VListItemTitle>
           </VListItem>
 
           <!-- Divider -->
@@ -119,7 +80,7 @@ import avatar1 from '@images/avatars/avatar-1.png'
               />
             </template>
 
-            <VListItemTitle>Logout</VListItemTitle>
+            <VListItemTitle>Выйти</VListItemTitle>
           </VListItem>
         </VList>
       </VMenu>
