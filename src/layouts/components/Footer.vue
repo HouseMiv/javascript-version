@@ -11,12 +11,12 @@
         size="1.25rem"
         class="mx-1"
       />
-      By <a
+      <!-- By <a
         href="https://themeselection.com"
         target="_blank"
         rel="noopener noreferrer"
         class="text-primary ms-1"
-      >ThemeSelection</a>
+      >ThemeSelection</a> -->
     </span>
   </div>
 </template>

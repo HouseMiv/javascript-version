@@ -1,6 +1,5 @@
 <script setup>
 import AccountSettingsAccount from '@/views/pages/account-settings/AccountSettingsAccount.vue';
-import AccountSettingsNotification from '@/views/pages/account-settings/AccountSettingsNotification.vue';
 import AccountSettingsSecurity from '@/views/pages/account-settings/AccountSettingsSecurity.vue';
 import { useRoute } from 'vue-router';
 
@@ -18,12 +17,7 @@ const tabs = [
     title: 'Безопасность',
     icon: 'bx-lock-open',
     tab: 'security',
-  },
-  {
-    title: 'Уведомления',
-    icon: 'bx-bell',
-    tab: 'notification',
-  },
+  }
 ]
 </script>
 
@@ -61,11 +55,7 @@ const tabs = [
       <VWindowItem value="security">
         <AccountSettingsSecurity />
       </VWindowItem>
-
-      <!-- Notification -->
-      <VWindowItem value="notification">
-        <AccountSettingsNotification />
-      </VWindowItem>
+      
     </VWindow>
   </div>
 </template>

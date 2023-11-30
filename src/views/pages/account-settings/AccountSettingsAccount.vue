@@ -1,29 +1,50 @@
 <script setup>
-import avatar1 from '@images/avatars/avatar-1.png'
+import avatar1 from '@images/avatars/avatar-1.png';
 
 const accountData = {
   avatarImg: avatar1,
-  firstName: 'john',
-  lastName: 'Doe',
-  email: 'johnDoe@example.com',
-  org: 'ThemeSelection',
-  phone: '+1 (917) 543-9876',
-  address: '123 Main St, New York, NY 10001',
-  state: 'New York',
-  zip: '10001',
-  country: 'USA',
-  language: 'English',
+  nickname: 'john',
+  name: 'Doe',
   timezone: '(GMT-11:00) International Date Line West',
-  currency: 'USD',
-}
+};
+
+const timezones = [
+'(GMT-11:00) Международная линия дат Западная',
+'(GMT-11:00) Остров Мидуэй',
+'(GMT-10:00) Гавайи',
+'(GMT-09:00) Аляска',
+'(GMT-08:00) Тихоокеанское время (США и Канада)',
+'(GMT-08:00) Тихуана',
+'(GMT-07:00) Аризона',
+'(GMT-07:00) Чиуауа',
+'(GMT-07:00) Ла-Пас',
+'(GMT-07:00) Масатлан',
+'(GMT-07:00) Горное время (США и Канада)',
+'(GMT-06:00) Центральная Америка',
+'(GMT-06:00) Центральное время (США и Канада)',
+'(GMT-06:00) Гвадалахара',
+'(GMT-06:00) Мехико',
+'(GMT-06:00) Монтеррей',
+'(GMT-06:00) Саскачеван',
+'(GMT-05:00) Богота',
+'(GMT-05:00) Восточное время (США и Канада)',
+'(GMT-05:00) Индиана (Восток)',
+'(GMT-05:00) Лима',
+'(GMT-05:00) Кито',
+'(GMT-04:00) Атлантическое время (Канада)',
+'(GMT-04:00) Каракас',
+'(GMT-04:00) Ла-Пас',
+'(GMT-04:00) Сантьяго',
+'(GMT-03:00) Бразилия',
+'(GMT-02:00) Срединно-Атлантический океан',
+'(GMT-01:00) Азорские острова',
+"(GMT+00:00) Лондон",
+]
 
 const refInputEl = ref()
 const accountDataLocal = ref(structuredClone(accountData))
 const isAccountDeactivated = ref(false)
 
-const resetForm = () => {
-  accountDataLocal.value = structuredClone(accountData)
-}
 
 const changeAvatar = file => {
   const fileReader = new FileReader()
@@ -42,68 +63,12 @@ const resetAvatar = () => {
   accountDataLocal.value.avatarImg = accountData.avatarImg
 }
 
-const timezones = [
-  '(GMT-11:00) International Date Line West',
-  '(GMT-11:00) Midway Island',
-  '(GMT-10:00) Hawaii',
-  '(GMT-09:00) Alaska',
-  '(GMT-08:00) Pacific Time (US & Canada)',
-  '(GMT-08:00) Tijuana',
-  '(GMT-07:00) Arizona',
-  '(GMT-07:00) Chihuahua',
-  '(GMT-07:00) La Paz',
-  '(GMT-07:00) Mazatlan',
-  '(GMT-07:00) Mountain Time (US & Canada)',
-  '(GMT-06:00) Central America',
-  '(GMT-06:00) Central Time (US & Canada)',
-  '(GMT-06:00) Guadalajara',
-  '(GMT-06:00) Mexico City',
-  '(GMT-06:00) Monterrey',
-  '(GMT-06:00) Saskatchewan',
-  '(GMT-05:00) Bogota',
-  '(GMT-05:00) Eastern Time (US & Canada)',
-  '(GMT-05:00) Indiana (East)',
-  '(GMT-05:00) Lima',
-  '(GMT-05:00) Quito',
-  '(GMT-04:00) Atlantic Time (Canada)',
-  '(GMT-04:00) Caracas',
-  '(GMT-04:00) La Paz',
-  '(GMT-04:00) Santiago',
-  '(GMT-03:30) Newfoundland',
-  '(GMT-03:00) Brasilia',
-  '(GMT-03:00) Buenos Aires',
-  '(GMT-03:00) Georgetown',
-  '(GMT-03:00) Greenland',
-  '(GMT-02:00) Mid-Atlantic',
-  '(GMT-01:00) Azores',
-  '(GMT-01:00) Cape Verde Is.',
-  '(GMT+00:00) Casablanca',
-  '(GMT+00:00) Dublin',
-  '(GMT+00:00) Edinburgh',
-  '(GMT+00:00) Lisbon',
-  '(GMT+00:00) London',
-]
-
-const currencies = [
-  'USD',
-  'EUR',
-  'GBP',
-  'AUD',
-  'BRL',
-  'CAD',
-  'CNY',
-  'CZK',
-  'DKK',
-  'HKD',
-  'HUF',
-  'INR',
-]
 </script>
 
 <template>
   <VRow>
     <VCol cols="12">
-      <VCard title="Account Details">
+      <VCard title="Данные пользователя">
         <VCardText class="d-flex">
           <!-- 👉 Avatar -->
           <VAvatar
@@ -124,7 +89,7 @@ const currencies = [
                   icon="bx-cloud-upload"
                   class="d-sm-none"
                 />
-                <span class="d-none d-sm-block">Upload new photo</span>
+                <span class="d-none d-sm-block">Загрузить Фото</span>
               </VBtn>
 
               <input
@@ -136,22 +101,10 @@ const currencies = [
                 @input="changeAvatar"
               >
 
-              <VBtn
-                type="reset"
-                color="error"
-                variant="tonal"
-                @click="resetAvatar"
-              >
-                <span class="d-none d-sm-block">Reset</span>
-                <VIcon
-                  icon="bx-refresh"
-                  class="d-sm-none"
-                />
-              </VBtn>
             </div>
 
             <p class="text-body-1 mb-0">
-              Allowed JPG, GIF or PNG. Max size of 800K
+              Разрешены JPG, GIF или PNG. Максимальный размер 800 КБ
             </p>
           </form>
         </VCardText>
@@ -168,9 +121,9 @@ const currencies = [
                 cols="12"
               >
                 <VTextField
-                  v-model="accountDataLocal.firstName"
-                  placeholder="John"
-                  label="First Name"
+                  v-model="accountDataLocal.nickname"
+                  placeholder="Jesus"
+                  label="NickName"
                 />
               </VCol>
 
@@ -180,115 +133,16 @@ const currencies = [
                 cols="12"
               >
                 <VTextField
-                  v-model="accountDataLocal.lastName"
-                  placeholder="Doe"
-                  label="Last Name"
-                />
-              </VCol>
-
-              <!-- 👉 Email -->
-              <VCol
-                cols="12"
-                md="6"
-              >
-                <VTextField
-                  v-model="accountDataLocal.email"
-                  label="E-mail"
-                  placeholder="johndoe@gmail.com"
-                  type="email"
-                />
-              </VCol>
-
-              <!-- 👉 Organization -->
-              <VCol
-                cols="12"
-                md="6"
-              >
-                <VTextField
-                  v-model="accountDataLocal.org"
-                  label="Organization"
-                  placeholder="ThemeSelection"
-                />
-              </VCol>
-
-              <!-- 👉 Phone -->
-              <VCol
-                cols="12"
-                md="6"
-              >
-                <VTextField
-                  v-model="accountDataLocal.phone"
-                  label="Phone Number"
-                  placeholder="+1 (917) 543-9876"
-                />
-              </VCol>
-
-              <!-- 👉 Address -->
-              <VCol
-                cols="12"
-                md="6"
-              >
-                <VTextField
-                  v-model="accountDataLocal.address"
-                  label="Address"
-                  placeholder="123 Main St, New York, NY 10001"
-                />
-              </VCol>
-
-              <!-- 👉 State -->
-              <VCol
-                cols="12"
-                md="6"
-              >
-                <VTextField
-                  v-model="accountDataLocal.state"
-                  label="State"
-                  placeholder="New York"
-                />
-              </VCol>
-
-              <!-- 👉 Zip Code -->
-              <VCol
-                cols="12"
-                md="6"
-              >
-                <VTextField
-                  v-model="accountDataLocal.zip"
-                  label="Zip Code"
-                  placeholder="10001"
-                />
-              </VCol>
-
-              <!-- 👉 Country -->
-              <VCol
-                cols="12"
-                md="6"
-              >
-                <VSelect
-                  v-model="accountDataLocal.country"
-                  label="Country"
-                  :items="['USA', 'Canada', 'UK', 'India', 'Australia']"
-                  placeholder="Select Country"
-                />
-              </VCol>
-
-              <!-- 👉 Language -->
-              <VCol
-                cols="12"
-                md="6"
-              >
-                <VSelect
-                  v-model="accountDataLocal.language"
-                  label="Language"
-                  placeholder="Select Language"
-                  :items="['English', 'Spanish', 'Arabic', 'Hindi', 'Urdu']"
+                  v-model="accountDataLocal.name"
+                  placeholder="John"
+                  label="Настоящее имя"
                 />
               </VCol>
 
               <!-- 👉 Timezone -->
               <VCol
                 cols="12"
-                md="6"
+                md="12"
               >
                 <VSelect
                   v-model="accountDataLocal.timezone"
@@ -299,35 +153,14 @@ const currencies = [
                 />
               </VCol>
 
-              <!-- 👉 Currency -->
-              <VCol
-                cols="12"
-                md="6"
-              >
-                <VSelect
-                  v-model="accountDataLocal.currency"
-                  label="Currency"
-                  placeholder="Select Currency"
-                  :items="currencies"
-                  :menu-props="{ maxHeight: 200 }"
-                />
-              </VCol>
 
               <!-- 👉 Form Actions -->
               <VCol
                 cols="12"
                 class="d-flex flex-wrap gap-4"
               >
-                <VBtn>Save changes</VBtn>
-
-                <VBtn
-                  color="secondary"
-                  variant="tonal"
-                  type="reset"
-                  @click.prevent="resetForm"
-                >
-                  Reset
-                </VBtn>
+                <VBtn>Сохранить</VBtn>
+                
               </VCol>
             </VRow>
           </VForm>
@@ -335,26 +168,5 @@ const currencies = [
       </VCard>
     </VCol>
 
-    <VCol cols="12">
-      <!-- 👉 Deactivate Account -->
-      <VCard title="Deactivate Account">
-        <VCardText>
-          <div>
-            <VCheckbox
-              v-model="isAccountDeactivated"
-              label="I confirm my account deactivation"
-            />
-          </div>
-
-          <VBtn
-            :disabled="!isAccountDeactivated"
-            color="error"
-            class="mt-3"
-          >
-            Deactivate Account
-          </VBtn>
-        </VCardText>
-      </VCard>
-    </VCol>
   </VRow>
 </template>
