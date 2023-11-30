@@ -1,8 +1,8 @@
 <script setup>
-import { useRoute } from 'vue-router'
-import AccountSettingsAccount from '@/views/pages/account-settings/AccountSettingsAccount.vue'
-import AccountSettingsNotification from '@/views/pages/account-settings/AccountSettingsNotification.vue'
-import AccountSettingsSecurity from '@/views/pages/account-settings/AccountSettingsSecurity.vue'
+import AccountSettingsAccount from '@/views/pages/account-settings/AccountSettingsAccount.vue';
+import AccountSettingsNotification from '@/views/pages/account-settings/AccountSettingsNotification.vue';
+import AccountSettingsSecurity from '@/views/pages/account-settings/AccountSettingsSecurity.vue';
+import { useRoute } from 'vue-router';
 
 const route = useRoute()
 const activeTab = ref(route.params.tab)
@@ -10,7 +10,7 @@ const activeTab = ref(route.params.tab)
 // tabs
 const tabs = [
   {
-    title: 'Account',
+    title: 'Пользователь',
     icon: 'bx-user',
     tab: 'account',
   },
