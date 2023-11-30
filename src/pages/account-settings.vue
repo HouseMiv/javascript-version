@@ -15,12 +15,12 @@ const tabs = [
     tab: 'account',
   },
   {
-    title: 'Security',
+    title: 'Безопасность',
     icon: 'bx-lock-open',
     tab: 'security',
   },
   {
-    title: 'Notifications',
+    title: 'Уведомления',
     icon: 'bx-bell',
     tab: 'notification',
   },
