@@ -52,6 +52,7 @@ const router = createRouter({
           path: 'form-layouts',
           component: () => import('../pages/form-layouts.vue'),
         },
+
       ],
     },
     {
@@ -61,6 +62,10 @@ const router = createRouter({
         {
           path: '/:pathMatch(.*)*',
           component: () => import('../pages/[...all].vue'),
+        },
+        {
+          path: '/welcome',
+        component: () => import('../pages/welcome.vue'),
         },
       ],
     },
