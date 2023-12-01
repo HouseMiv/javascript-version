@@ -64,7 +64,7 @@ const handleNavScroll = evt => {
           />
 
           <h1 class="leading-normal">
-            AdminHUB
+            AdminHub
           </h1>
         </RouterLink>
       </slot>

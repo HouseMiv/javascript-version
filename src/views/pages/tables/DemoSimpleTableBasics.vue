@@ -1,39 +1,25 @@
 <script setup>
-const desserts = [
+const vacation = [
   {
-    dessert: 'Frozen Yogurt',
-    calories: 159,
-    fat: 6,
-    carbs: 24,
-    protein: 4,
+    NickName: 'HouseMiv',
+    DateStart: '23.01.2023',
+    DateEnd: '31.01.2023',
+    Reason: 'Я люблю когда вылосатые мужики обмазываются маслом',
+    Status: 'Одобрено',
   },
   {
-    dessert: 'Ice cream sandwich',
-    calories: 237,
-    fat: 6,
-    carbs: 24,
-    protein: 4,
+    NickName: 'HouseMiv',
+    DateStart: '23.01.2023',
+    DateEnd: '31.01.2023',
+    Reason: 'Я люблю когда вылосатые мужики обмазываются маслом',
+    Status: 'Отклонено',
   },
   {
-    dessert: 'Eclair',
-    calories: 262,
-    fat: 6,
-    carbs: 24,
-    protein: 4,
-  },
-  {
-    dessert: 'Cupcake',
-    calories: 305,
-    fat: 6,
-    carbs: 24,
-    protein: 4,
-  },
-  {
-    dessert: 'Gingerbread',
-    calories: 356,
-    fat: 6,
-    carbs: 24,
-    protein: 4,
+    NickName: 'HouseMiv',
+    DateStart: '23.01.2023',
+    DateEnd: '31.01.2023',
+    Reason: 'Я люблю когда вылосатые мужики обмазываются маслом',
+    Status: 'На рассмотрении',
   },
 ]
 </script>
@@ -43,42 +29,42 @@ const desserts = [
     <thead>
       <tr>
         <th class="text-uppercase">
-          Desserts (100g Servings)
+          NickName
         </th>
         <th>
-          calories
+          Дата начала отпуска
         </th>
         <th>
-          Fat(g)
+          Дата оконочания отпуска
         </th>
         <th>
-          Carbs(g)
+          Причина отпуска
         </th>
         <th>
-          protein(g)
+          Статус
         </th>
       </tr>
     </thead>
 
     <tbody>
       <tr
-        v-for="item in desserts"
-        :key="item.dessert"
+        v-for="item in vacation"
+        :key="item.vacation"
       >
         <td>
-          {{ item.dessert }}
+          {{ item.NickName }}
         </td>
         <td class="text-center">
-          {{ item.calories }}
+          {{ item.DateStart }}
         </td>
         <td class="text-center">
-          {{ item.fat }}
+          {{ item.DateEnd }}
         </td>
         <td class="text-center">
-          {{ item.carbs }}
+          {{ item.Reason }}
         </td>
         <td class="text-center">
-          {{ item.protein }}
+          {{ item.Status }}
         </td>
       </tr>
     </tbody>

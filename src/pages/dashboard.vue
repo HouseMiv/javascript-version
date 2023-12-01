@@ -18,8 +18,6 @@ import AnalyticsTotalRevenue from '@/views/dashboard/AnalyticsTotalRevenue.vue'
       <AnalyticsCongratulations />
     </VCol>
 
-    
-
     <!-- <VCol
       cols="12"
       sm="4"

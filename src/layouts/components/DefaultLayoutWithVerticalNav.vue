@@ -62,7 +62,42 @@ const upgradeBanner = computed(() => {
       <!-- 👉 User Interface -->
       <VerticalNavSectionTitle
         :item="{
-          heading: 'User Interface',
+          heading: 'Информация',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Статистика',
+          icon: 'mdi-note-check-outline',
+          to: '/statistic',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Тестирование',
+          icon: 'mdi-ab-testing',
+          to: '/testing',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Биндер',
+          icon: 'mdi-file-compare',
+          to: '/binder',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Отпуск',
+          icon: 'mdi-coffee',
+          to: '/vacation',
+        }"
+      />
+
+
+      <VerticalNavSectionTitle
+        :item="{
+          heading: 'Admin develop',
         }"
       />
       <VerticalNavLink

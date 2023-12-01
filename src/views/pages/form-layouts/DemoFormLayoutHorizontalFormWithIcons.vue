@@ -1,146 +1,117 @@
 <script setup>
-const firstName = ref('')
-const email = ref('')
-const mobile = ref()
-const password = ref()
-const checkbox = ref(false)
+import { ref } from 'vue'
+
+const startDate = ref('')
+const endDate = ref('')
+const reason = ref('')
+
+const minEndDate = ref('')
+
+const updateMinEndDate = () => {
+  minEndDate.value = startDate.value || minEndDateFallback()
+
+  // Если выбрана дата начала и дата окончания меньше даты начала, установим её равной дате начала
+  if (startDate.value && endDate.value && endDate.value < startDate.value) {
+    endDate.value = startDate.value
+  }
+}
+
+const minEndDateFallback = () => {
+  const today = new Date()
+  const dd = String(today.getDate()).padStart(2, '0')
+  const mm = String(today.getMonth() + 1).padStart(2, '0')
+  const yyyy = today.getFullYear()
+
+  return `${yyyy}-${mm}-${dd}`
+}
 </script>
 
 <template>
-  <VForm @submit.prevent="() => {}">
-    <VRow>
-      <!-- 👉 First Name -->
-      <VCol cols="12">
-        <VRow no-gutters>
-          <VCol
-            cols="12"
-            md="3"
-          >
-            <label for="firstNameHorizontalIcons">First Name</label>
-          </VCol>
-
-          <VCol
-            cols="12"
-            md="9"
-          >
-            <VTextField
-              id="firstNameHorizontalIcons"
-              v-model="firstName"
-              prepend-inner-icon="bx-user"
-              placeholder="John"
-              persistent-placeholder
-            />
-          </VCol>
-        </VRow>
-      </VCol>
-
-      <!-- 👉 Email -->
-      <VCol cols="12">
-        <VRow no-gutters>
-          <VCol
-            cols="12"
-            md="3"
-          >
-            <label for="emailHorizontalIcons">Email</label>
-          </VCol>
-
-          <VCol
-            cols="12"
-            md="9"
-          >
-            <VTextField
-              id="emailHorizontalIcons"
-              v-model="email"
-              prepend-inner-icon="bx-envelope"
-              placeholder="johndoe@email.com"
-              persistent-placeholder
-            />
-          </VCol>
-        </VRow>
-      </VCol>
-
-      <!-- 👉 Mobile -->
-      <VCol cols="12">
-        <VRow no-gutters>
-          <VCol
-            cols="12"
-            md="3"
-          >
-            <label for="mobileHorizontalIcons">Mobile</label>
-          </VCol>
-
-          <VCol
-            cols="12"
-            md="9"
-          >
-            <VTextField
-              id="mobileHorizontalIcons"
-              v-model="mobile"
-              type="number"
-              prepend-inner-icon="bx-mobile"
-              placeholder="+1 123 456 7890"
-              persistent-placeholder
-            />
-          </VCol>
-        </VRow>
-      </VCol>
-
-      <!-- 👉 Password -->
-      <VCol cols="12">
-        <VRow no-gutters>
-          <VCol
-            cols="12"
-            md="3"
-          >
-            <label for="passwordHorizontalIcons">Password</label>
-          </VCol>
-
-          <VCol
-            cols="12"
-            md="9"
-          >
-            <VTextField
-              id="passwordHorizontalIcons"
-              v-model="password"
-              prepend-inner-icon="bx-lock"
-              type="password"
-              placeholder="············"
-              persistent-placeholder
-            />
-          </VCol>
-        </VRow>
-      </VCol>
-
-      <!-- 👉 Checkbox -->
-      <VCol
-        offset-md="3"
-        cols="12"
-        md="9"
-      >
-        <VCheckbox
-          v-model="checkbox"
-          label="Remember me"
-        />
-      </VCol>
-
-      <!-- 👉 submit and reset button -->
-      <VCol
-        offset-md="3"
-        cols="12"
-        md="9"
-        class="d-flex gap-4"
-      >
-        <VBtn type="submit">
-          Submit
-        </VBtn>
-        <VBtn
-          color="secondary"
-          type="reset"
-          variant="tonal"
+  <VForm @submit.prevent="submitForm">
+    <VCol cols="12">
+      <VRow no-gutters>
+        <VCol
+          cols="12"
+          md="3"
         >
-          Reset
-        </VBtn>
-      </VCol>
-    </VRow>
+          <label for="startDate">Дата начала отпуска</label>
+        </VCol>
+        <VCol
+          cols="12"
+          md="9"
+        >
+          <VTextField
+            id="startDate"
+            v-model="startDate"
+            type="date"
+            prepend-inner-icon="bx-time-five"
+            placeholder="10.10.2023"
+            persistent-placeholder
+            @input="updateMinEndDate"
+          />
+        </VCol>
+      </VRow>
+    </VCol>
+
+    <VCol cols="12">
+      <VRow no-gutters>
+        <VCol
+          cols="12"
+          md="3"
+        >
+          <label for="endDate">Дата окончания отпуска</label>
+        </VCol>
+        <VCol
+          cols="12"
+          md="9"
+        >
+          <VTextField
+            id="endDate"
+            v-model="endDate"
+            type="date"
+            :min="minEndDate"
+            prepend-inner-icon="bxs-time-five"
+            placeholder="25.10.2023"
+            persistent-placeholder
+          />
+        </VCol>
+      </VRow>
+    </VCol>
+
+    <VCol cols="12">
+      <VRow no-gutters>
+        <VCol
+          cols="12"
+          md="3"
+        >
+          <label for="mobileHorizontalIcons">Причина отпуска</label>
+        </VCol>
+        <VCol
+          cols="12"
+          md="9"
+        >
+          <VTextField
+            id="mobileHorizontalIcons"
+            v-model.lazy="reason"
+            type="text"
+            prepend-inner-icon="bx-notepad"
+            placeholder="Уехал путешествовать по миру"
+            persistent-placeholder
+            @keydown="handleEnterKey"
+          />
+        </VCol>
+      </VRow>
+    </VCol>
+
+    <VCol
+      offset-md="3"
+      cols="12"
+      md="9"
+      class="d-flex gap-4"
+    >
+      <VBtn type="submit">
+        Отправить заявку
+      </VBtn>
+    </VCol>
   </VForm>
 </template>

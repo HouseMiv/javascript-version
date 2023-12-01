@@ -33,6 +33,22 @@ const router = createRouter({
           component: () => import('../pages/tables.vue'),
         },
         {
+          path: 'statistic',
+          component: () => import('../pages/statistic.vue'),
+        },
+        {
+          path: 'testing',
+          component: () => import('../pages/testing.vue'),
+        },
+        {
+          path: 'binder',
+          component: () => import('../pages/binder.vue'),
+        },
+        {
+          path: 'vacation',
+          component: () => import('../pages/vacation.vue'),
+        },
+        {
           path: 'form-layouts',
           component: () => import('../pages/form-layouts.vue'),
         },
