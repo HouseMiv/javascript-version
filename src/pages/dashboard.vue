@@ -1,78 +1,75 @@
 <script setup>
 import AnalyticsCongratulations from '@/views/dashboard/AnalyticsCongratulations.vue'
-import AnalyticsFinanceTabs from '@/views/dashboard/AnalyticsFinanceTab.vue'
-import AnalyticsOrderStatistics from '@/views/dashboard/AnalyticsOrderStatistics.vue'
 import AnalyticsProfitReport from '@/views/dashboard/AnalyticsProfitReport.vue'
-import AnalyticsTotalRevenue from '@/views/dashboard/AnalyticsTotalRevenue.vue'
-
-// 👉 Images
+import nightavatar from '@images/avatars/nightavatar.jpg'
+import banner1 from '@images/pages/banner.png'
 </script>
 
 <template>
-  <VRow>
+  <VRow class="h-100">
     <!-- 👉 Congratulations -->
     <VCol
       cols="12"
-      md="12"
+      md="8"
+      class="d-flex h-100"
     >
       <AnalyticsCongratulations />
     </VCol>
 
-    <!-- <VCol
-      cols="12"
-      sm="4"
-    >
-    </VCol> -->
-
-    
-    <!-- 👉 Total Revenue -->
+    <!-- 👉 Profit Report -->
     <VCol
       cols="12"
-      md="8"
-      order="2"
-      order-md="1"
+      sm="6"
+      md="4"
+      class="d-flex h-170;"
     >
-      <AnalyticsTotalRevenue />
+      <AnalyticsProfitReport />
     </VCol>
 
+    <!-- 👉 User Avatar -->
     <VCol
       cols="12"
-      sm="8"
+      sm="6"
       md="4"
-      order="1"
-      order-md="2"
     >
+      <VCard>
+        <VImg :src="banner1" />
 
-      <VRow>
-        <!-- 👉 Profit Report -->
-        <VCol
-          cols="12"
-          sm="12"
-        >
-          <AnalyticsProfitReport />
-        </VCol>
-      </VRow>
+        <VCardText class="position-relative">
+          <!-- User Avatar -->
+          <VAvatar
+            size="75"
+            class="avatar-center"
+            :image="nightavatar"
+          />
+
+          <!-- Title, Subtitle & Action Button -->
+          <div class="d-flex justify-space-between flex-wrap pt-8">
+            <div class="me-2 mb-2">
+              <VCardTitle class="pa-0">
+                HouseMiv
+              </VCardTitle>
+              <VCardSubtitle
+                class="text-caption pa-0"
+                style="color: gold;"
+              >
+                Developer
+              </VCardSubtitle>
+            </div>
+          </div>
+        </VCardText>
+      </VCard>
     </VCol>
 
     <!-- 👉 Order Statistics -->
-    <VCol
-      cols="12"
-      md="4"
-      sm="6"
-      order="3"
-    >
-      <AnalyticsOrderStatistics />
-    </VCol>
-
-    <!-- 👉 Tabs chart -->
-    <VCol
-      cols="12"
-      md="4"
-      sm="6"
-      order="3"
-    >
-      <AnalyticsFinanceTabs />
-    </VCol>
-
   </VRow>
 </template>
+
+<style lang="scss" scoped>
+.avatar-center {
+  position: absolute;
+  border: 3px solid rgb(var(--v-theme-surface));
+  inset-block-start: -2rem;
+  inset-inline-start: 1rem;
+}
+</style>
