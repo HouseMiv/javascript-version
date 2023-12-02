@@ -4,7 +4,6 @@ export default {
     this.loadScript("src/js/jquery-1.12.3.min.js")
     this.loadScript("src/js/parallax.min.js")
     this.loadScript("src/js/custom.js")
-    this.loadScript("src/js/button.js")
   },
   methods: {
     loadScript(src) {

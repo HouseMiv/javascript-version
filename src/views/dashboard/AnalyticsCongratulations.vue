@@ -1,7 +1,8 @@
 <script setup>
-import illustrationJohnDark from '@images/cards/illustration-john-dark.png';
-import illustrationJohnLight from '@images/cards/illustration-john-light.png';
-import { useTheme } from 'vuetify';
+import illustrationJohnDark from '@images/cards/illustration-john-dark.png'
+import illustrationJohnLight from '@images/cards/illustration-john-light.png'
+import { useTheme } from 'vuetify'
+
 
 const { global } = useTheme()
 const illustrationJohn = computed(() => global.name.value === 'dark' ? illustrationJohnDark : illustrationJohnLight)
@@ -30,7 +31,7 @@ const illustrationJohn = computed(() => global.name.value === 'dark' ? illustrat
           </span>
           <br>
           <VBtn
-             variant="tonal"
+            variant="tonal"
             class="mt-4"
             size="small"
           >
