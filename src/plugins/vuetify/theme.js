@@ -1,4 +1,4 @@
-export const staticPrimaryColor = '#696CFF'
+export const staticPrimaryColor = '#ac0046'
 
 const theme = {
   defaultTheme: 'dark',
@@ -6,7 +6,7 @@ const theme = {
     light: {
       dark: false,
       colors: {
-        'primary': '#696CFF',
+        'primary': '#ac0046',
         'on-primary': '#fff',
         'secondary': '#8592A3',
         'on-secondary': '#fff',
@@ -54,7 +54,7 @@ const theme = {
     dark: {
       dark: true,
       colors: {
-        'primary': '#696CFF',
+        'primary': '#ac0046',
         'on-primary': '#fff',
         'secondary': '#8592A3',
         'on-secondary': '#fff',
@@ -65,9 +65,9 @@ const theme = {
         'warning': '#FFAB00',
         'on-warning': '#fff',
         'error': '#FF3E1D',
-        'background': '#232333',
+        'background': '#0c0c0c',
         'on-background': '#DBDBEB',
-        'surface': '#2B2C40',
+        'surface': '#111111',
         'on-surface': '#DBDBEB',
         'grey-50': '#2A2E42',
         'grey-100': '#444463',
@@ -80,8 +80,8 @@ const theme = {
         'grey-800': '#CFD3EC',
         'grey-900': '#E7E9F6',
         'perfect-scrollbar-thumb': '#4A5072',
-        'skin-bordered-background': '#2b2c40',
-        'skin-bordered-surface': '#2b2c40',
+        'skin-bordered-background': '#111111',
+        'skin-bordered-surface': '#111111',
       },
       variables: {
         'code-color': '#d400ff',
@@ -89,7 +89,7 @@ const theme = {
         'overlay-scrim-opacity': 0.6,
         'border-color': '#DBDBEB',
         'snackbar-background': '#DBDBEB',
-        'snackbar-color': '#2B2C40',
+        'snackbar-color': '#111111',
         'tooltip-background': '#464A65',
         'tooltip-opacity': 0.9,
         'table-header-background': '#3A3E5B',
