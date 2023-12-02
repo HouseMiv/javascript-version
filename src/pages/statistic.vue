@@ -10,6 +10,7 @@ import AnalyticsProfitReport from '@/views/dashboard/AnalyticsProfitReport.vue'
     <div class="flex-item">
       <h6 class="text-h6 text-no-wrap mb-1">
         Статистика администратора
+        йоу
       </h6>
       <AnalyticsProfitReport />
     </div>
