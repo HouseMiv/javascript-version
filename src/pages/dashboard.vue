@@ -51,7 +51,7 @@ import banner1 from '@images/pages/banner.png'
               </VCardTitle>
               <VCardSubtitle
                 class="text-caption pa-0"
-                style="color: gold;"
+                style="color: rgb(255, 0, 106);"
               >
                 Developer
               </VCardSubtitle>
