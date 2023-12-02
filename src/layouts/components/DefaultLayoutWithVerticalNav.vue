@@ -51,13 +51,6 @@ const upgradeBanner = computed(() => {
           to: '/dashboard',
         }"
       />
-      <VerticalNavLink
-        :item="{
-          title: 'Профиль',
-          icon: 'mdi-account-cog-outline',
-          to: '/account-settings',
-        }"
-      />
 
       <!-- 👉 User Interface -->
       <VerticalNavSectionTitle
@@ -74,7 +67,14 @@ const upgradeBanner = computed(() => {
       />
       <VerticalNavLink
         :item="{
-          title: 'Тестирование',
+          title: 'База знаний',
+          icon: 'bx-book-content',
+          to: '/base',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Обучение',
           icon: 'mdi-ab-testing',
           to: '/testing',
         }"

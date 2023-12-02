@@ -1,7 +1,7 @@
 <script setup>
-import AccountSettingsAccount from '@/views/pages/account-settings/AccountSettingsAccount.vue';
-import AccountSettingsSecurity from '@/views/pages/account-settings/AccountSettingsSecurity.vue';
-import { useRoute } from 'vue-router';
+import AccountSettingsAccount from '@/views/pages/account-settings/AccountSettingsAccount.vue'
+import AccountSettingsSecurity from '@/views/pages/account-settings/AccountSettingsSecurity.vue'
+import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const activeTab = ref(route.params.tab)
@@ -13,11 +13,6 @@ const tabs = [
     icon: 'bx-user',
     tab: 'account',
   },
-  {
-    title: 'Безопасность',
-    icon: 'bx-lock-open',
-    tab: 'security',
-  }
 ]
 </script>
 
@@ -55,7 +50,6 @@ const tabs = [
       <VWindowItem value="security">
         <AccountSettingsSecurity />
       </VWindowItem>
-      
     </VWindow>
   </div>
 </template>

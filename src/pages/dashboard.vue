@@ -3,15 +3,15 @@ import AnalyticsCongratulations from '@/views/dashboard/AnalyticsCongratulations
 import AnalyticsProfitReport from '@/views/dashboard/AnalyticsProfitReport.vue'
 import nightavatar from '@images/avatars/nightavatar.jpg'
 import banner1 from '@images/pages/banner.png'
+import News from '../views/dashboard/News.vue'
 </script>
 
 <template>
   <VRow class="h-100">
     <!-- 👉 Congratulations -->
     <VCol
-      cols="12"
+      cols="13"
       md="8"
-      class="d-flex h-100"
     >
       <AnalyticsCongratulations />
     </VCol>
@@ -21,7 +21,6 @@ import banner1 from '@images/pages/banner.png'
       cols="12"
       sm="6"
       md="4"
-      class="d-flex h-170;"
     >
       <AnalyticsProfitReport />
     </VCol>
@@ -51,7 +50,7 @@ import banner1 from '@images/pages/banner.png'
               </VCardTitle>
               <VCardSubtitle
                 class="text-caption pa-0"
-                style="color: gold;"
+                style="color: rgb(255, 0, 106);"
               >
                 Developer
               </VCardSubtitle>
@@ -59,6 +58,10 @@ import banner1 from '@images/pages/banner.png'
           </div>
         </VCardText>
       </VCard>
+    </VCol>
+    <!-- 👉 Order Statistics -->
+    <VCol class="flex-item">
+      <News />
     </VCol>
 
     <!-- 👉 Order Statistics -->

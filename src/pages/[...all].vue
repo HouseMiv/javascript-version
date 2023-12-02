@@ -8,7 +8,7 @@ import misc404 from '@images/pages/404.png'
     <ErrorHeader
       error-code="404"
       error-title="Page Not Found ⚠️"
-      error-description="We couldn't find the page you are looking for."
+      error-description="Нам не удалось найти страницу, которую вы ищете."
     />
 
     <!-- 👉 Image -->
@@ -23,7 +23,7 @@ import misc404 from '@images/pages/404.png'
         to="/"
         class="mt-10"
       >
-        Back to Home
+        Вернуться домой
       </VBtn>
     </div>
   </div>
