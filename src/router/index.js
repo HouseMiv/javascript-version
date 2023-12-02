@@ -1,3 +1,4 @@
+
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -65,7 +66,7 @@ const router = createRouter({
         },
         {
           path: '/welcome',
-        component: () => import('../pages/welcome.vue'),
+          component: () => import('../pages/welcome.vue'),
         },
       ],
     },
