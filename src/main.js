@@ -9,7 +9,6 @@ import '@layouts/styles/index.scss'
 import '@styles/styles.scss'
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'
-import VueMeta from 'vue-meta'
 
 loadFonts()
 
@@ -22,10 +21,6 @@ const app = createApp(App)
 app.use(vuetify)
 app.use(createPinia())
 app.use(router)
-Vue.use(VueMeta)
 
 // Mount vue app
 app.mount('#app')
-
-
-

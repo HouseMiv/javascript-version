@@ -1,3 +1,3 @@
 ﻿<template>
-  Статистика
+  1
 </template>

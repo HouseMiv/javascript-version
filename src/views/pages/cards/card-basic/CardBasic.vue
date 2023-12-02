@@ -20,7 +20,6 @@ const isCardDetailsVisible = ref(false)
 
 <template>
   <VRow>
-
     <!-- 👉 Robert Meyer -->
     <VCol
       cols="12"
@@ -42,15 +41,13 @@ const isCardDetailsVisible = ref(false)
           <div class="d-flex justify-space-between flex-wrap pt-8">
             <div class="me-2 mb-2">
               <VCardTitle class="pa-0">
-                Создано разработчиками
+                Создано разработчиками сайта
               </VCardTitle>
               <VCardSubtitle class="text-caption pa-0">
                 Самый удобный биндер для администрирования
               </VCardSubtitle>
             </div>
           </div>
-
-          
         </VCardText>
       </VCard>
     </VCol>
@@ -72,10 +69,8 @@ const isCardDetailsVisible = ref(false)
         </VCardItem>
 
         <VCardText>
-         Биндер создан для того, чтобы сделать ваш опыт администрирования сервера более удобным, 
-         эффективным и увлекательным. Управляйте сервером профессионально с помощью этого инструмента!
-
-
+          Биндер создан для того, чтобы сделать ваш опыт администрирования сервера более удобным, 
+          эффективным и увлекательным. Управляйте сервером профессионально с помощью этого инструмента!
         </VCardText>
       </VCard>
     </VCol>
@@ -158,7 +153,7 @@ const isCardDetailsVisible = ref(false)
         </VCardText>
         <VCardText>
           <VBtn variant="elevated">
-            Contact Now
+            Связаться
           </VBtn>
         </VCardText>
       </VCard>
@@ -195,7 +190,7 @@ const isCardDetailsVisible = ref(false)
         </VCardText>
         <VCardText>
           <VBtn variant="elevated">
-            Download
+            Скачать
           </VBtn>
         </VCardText>
       </VCard>
@@ -206,7 +201,7 @@ const isCardDetailsVisible = ref(false)
 <style lang="scss" scoped>
 .avatar-center {
   position: absolute;
-  border: 3px solid rgb(var(--v-theme-surface));
+  border: 0 solid rgb(var(--v-theme-surface));
   inset-block-start: -2rem;
   inset-inline-start: 1rem;
 }
