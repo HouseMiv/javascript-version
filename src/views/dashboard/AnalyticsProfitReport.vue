@@ -103,7 +103,7 @@ export default {
       <div class="d-flex flex-column justify-space-between gap-y-4">
         <div>
           <h6 class="text-h6 text-no-wrap mb-1">
-            Статистика за неделю
+            Статистика за день
           </h6>
           <VChip color="warning">
             {{ currentDateTime() }}
