@@ -1,4 +1,4 @@
-﻿<script setup>
+<script setup>
 import AnalyticsFinanceTabs from '@/views/dashboard/AnalyticsFinanceTab.vue'
 import AnalyticsOrderStatistics from '@/views/dashboard/AnalyticsOrderStatistics.vue'
 import AnalyticsProfitReport from '@/views/dashboard/AnalyticsProfitReport.vue'
@@ -8,24 +8,21 @@ import AnalyticsProfitReport from '@/views/dashboard/AnalyticsProfitReport.vue'
   <div class="flex-container">
     <!-- 👉 Profit Report -->
     <div class="flex-item">
-      <h6 class="text-h6 text-no-wrap mb-1">
-        Статистика администратора
-        йоу
-      </h6>
       <AnalyticsProfitReport />
-    </div>
 
-    <!-- 👉 Finance Tabs -->
-    <div class="flex-item">
-      <AnalyticsFinanceTabs />
-    </div>
+      <!-- 👉 Finance Tabs -->
+      <div class="flex-item">
+        <AnalyticsFinanceTabs />
+      </div>
 
-    <!-- 👉 Order Statistics -->
-    <div class="flex-item">
-      <AnalyticsOrderStatistics />
+      <!-- 👉 Order Statistics -->
+      <div class="flex-item">
+        <AnalyticsOrderStatistics />
+      </div>
     </div>
   </div>
 </template>
+
 
 <style scoped>
   .flex-container {

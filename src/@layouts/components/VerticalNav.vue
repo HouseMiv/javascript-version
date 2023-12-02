@@ -1,7 +1,8 @@
 <script setup>
-import logo from '@images/logo.svg?raw';
-import { PerfectScrollbar } from 'vue3-perfect-scrollbar';
-import { useDisplay } from 'vuetify';
+import logodark from '@images/logodark.svg?raw'
+import logolight from '@images/logolight.svg?raw'
+import { useDisplay, useTheme } from 'vuetify'
+
 
 const props = defineProps({
   tag: {
@@ -21,6 +22,11 @@ const props = defineProps({
     required: true,
   },
 })
+
+const { global } = useTheme()
+const logo = computed(() => global.name.value === 'dark' ? logolight : logodark)
+
+import { PerfectScrollbar } from 'vue3-perfect-scrollbar'
 
 const { mdAndDown } = useDisplay()
 const refNav = ref()
@@ -62,10 +68,6 @@ const handleNavScroll = evt => {
             class="d-flex"
             v-html="logo"
           />
-
-          <h1 class="leading-normal">
-            AdminHub
-          </h1>
         </RouterLink>
       </slot>
     </div>
