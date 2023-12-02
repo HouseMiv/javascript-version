@@ -1,5 +1,5 @@
 ﻿<script setup>
-import CardBasic from '@/views/pages/cards/card-basic/CardBasic.vue';
+import CardBasic from '@/views/pages/cards/card-basic/CardBasic.vue'
 </script>
 
 <template>
@@ -9,6 +9,5 @@ import CardBasic from '@/views/pages/cards/card-basic/CardBasic.vue';
     </p>
 
     <CardBasic />
-
   </div>
 </template>
