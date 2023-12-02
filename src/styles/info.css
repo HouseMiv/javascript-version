@@ -1,0 +1,11 @@
+﻿h4 {
+    font-weight: bold;
+    color: white;
+  }
+  .close {
+    color:  white;
+    transform: scale(1.2)
+  }
+  .modal-content {
+    display: flex;
+  }

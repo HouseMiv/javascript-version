@@ -20,7 +20,6 @@ const isCardDetailsVisible = ref(false)
 
 <template>
   <VRow>
-
     <!-- 👉 Robert Meyer -->
     <VCol
       cols="12"
@@ -49,8 +48,6 @@ const isCardDetailsVisible = ref(false)
               </VCardSubtitle>
             </div>
           </div>
-
-          
         </VCardText>
       </VCard>
     </VCol>
@@ -72,10 +69,8 @@ const isCardDetailsVisible = ref(false)
         </VCardItem>
 
         <VCardText>
-         Биндер создан для того, чтобы сделать ваш опыт администрирования сервера более удобным, 
-         эффективным и увлекательным. Управляйте сервером профессионально с помощью этого инструмента!
-
-
+          Биндер создан для того, чтобы сделать ваш опыт администрирования сервера более удобным, 
+          эффективным и увлекательным. Управляйте сервером профессионально с помощью этого инструмента!
         </VCardText>
       </VCard>
     </VCol>
@@ -206,7 +201,7 @@ const isCardDetailsVisible = ref(false)
 <style lang="scss" scoped>
 .avatar-center {
   position: absolute;
-  border: 3px solid rgb(var(--v-theme-surface));
+  border: 0 solid rgb(var(--v-theme-surface));
   inset-block-start: -2rem;
   inset-inline-start: 1rem;
 }
