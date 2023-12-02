@@ -1,7 +1,6 @@
 <script setup>
 import AnalyticsCongratulations from '@/views/dashboard/AnalyticsCongratulations.vue'
 import AnalyticsProfitReport from '@/views/dashboard/AnalyticsProfitReport.vue'
-import News from '@/views/dashboard/News.vue'
 import nightavatar from '@images/avatars/nightavatar.jpg'
 import banner1 from '@images/pages/banner.png'
 </script>
@@ -63,13 +62,6 @@ import banner1 from '@images/pages/banner.png'
     </VCol>
 
     <!-- 👉 Order Statistics -->
-    <VCol
-      cols="12"
-      sm="10"
-      md="8"
-    >
-      <News />
-    </Vcol>
   </VRow>
 </template>
 

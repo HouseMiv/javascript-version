@@ -8,21 +8,23 @@ import AnalyticsProfitReport from '@/views/dashboard/AnalyticsProfitReport.vue'
   <div class="flex-container">
     <!-- 👉 Profit Report -->
     <div class="flex-item">
+      <h6 class="text-h6 text-no-wrap mb-1">
+        Статистика администратора
+      </h6>
       <AnalyticsProfitReport />
+    </div>
 
-      <!-- 👉 Finance Tabs -->
-      <div class="flex-item">
-        <AnalyticsFinanceTabs />
-      </div>
+    <!-- 👉 Finance Tabs -->
+    <div class="flex-item">
+      <AnalyticsFinanceTabs />
+    </div>
 
-      <!-- 👉 Order Statistics -->
-      <div class="flex-item">
-        <AnalyticsOrderStatistics />
-      </div>
+    <!-- 👉 Order Statistics -->
+    <div class="flex-item">
+      <AnalyticsOrderStatistics />
     </div>
   </div>
 </template>
-
 
 <style scoped>
   .flex-container {
