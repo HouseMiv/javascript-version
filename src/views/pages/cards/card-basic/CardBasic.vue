@@ -41,7 +41,7 @@ const isCardDetailsVisible = ref(false)
           <div class="d-flex justify-space-between flex-wrap pt-8">
             <div class="me-2 mb-2">
               <VCardTitle class="pa-0">
-                Создано разработчиками
+                Создано разработчиками сайта
               </VCardTitle>
               <VCardSubtitle class="text-caption pa-0">
                 Самый удобный биндер для администрирования
@@ -153,7 +153,7 @@ const isCardDetailsVisible = ref(false)
         </VCardText>
         <VCardText>
           <VBtn variant="elevated">
-            Contact Now
+            Связаться
           </VBtn>
         </VCardText>
       </VCard>
@@ -190,7 +190,7 @@ const isCardDetailsVisible = ref(false)
         </VCardText>
         <VCardText>
           <VBtn variant="elevated">
-            Download
+            Скачать
           </VBtn>
         </VCardText>
       </VCard>
