@@ -67,7 +67,14 @@ const upgradeBanner = computed(() => {
       />
       <VerticalNavLink
         :item="{
-          title: 'Тестирование',
+          title: 'База знаний',
+          icon: 'bx-book-content',
+          to: '/base',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Обучение',
           icon: 'mdi-ab-testing',
           to: '/testing',
         }"
