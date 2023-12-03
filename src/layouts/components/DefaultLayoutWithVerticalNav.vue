@@ -186,6 +186,10 @@ const upgradeBanner = computed(() => {
     <template #footer>
       <Footer />
     </template>
+
+    <template #discord>
+      <Discord />
+    </template>
   </VerticalNavLayout>
 </template>
 
