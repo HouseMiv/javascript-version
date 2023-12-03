@@ -51,13 +51,6 @@ const upgradeBanner = computed(() => {
           to: '/dashboard',
         }"
       />
-      <VerticalNavLink
-        :item="{
-          title: 'Профиль',
-          icon: 'mdi-account-cog-outline',
-          to: '/account-settings',
-        }"
-      />
 
       <!-- 👉 User Interface -->
       <VerticalNavSectionTitle
@@ -74,7 +67,7 @@ const upgradeBanner = computed(() => {
       />
       <VerticalNavLink
         :item="{
-          title: 'Обучение',
+          title: 'Тестирование',
           icon: 'mdi-ab-testing',
           to: '/testing',
         }"
@@ -93,8 +86,51 @@ const upgradeBanner = computed(() => {
           to: '/vacation',
         }"
       />
-
-
+      <VerticalNavSectionTitle
+        :item="{
+          heading: 'Leader info',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Статистика лидеров',
+          icon: 'bxs-book-open',
+          to: '/leader-online',
+        }"
+      />
+      <VerticalNavSectionTitle
+        :item="{
+          heading: 'Server Administration',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Admins',
+          icon: 'bx-male-female',
+          to: '/admins',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Admin Online',
+          icon: 'bxs-zap',
+          to: '/admin-online',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Edit Base',
+          icon: 'bxs-edit',
+          to: '/editbase',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Answer Reports',
+          icon: 'bxs-book-alt',
+          to: '/answer-reports',
+        }"
+      />
       <VerticalNavSectionTitle
         :item="{
           heading: 'Admin develop',
