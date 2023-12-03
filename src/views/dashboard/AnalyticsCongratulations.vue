@@ -10,7 +10,7 @@ const illustrationJohn = computed(() => global.name.value === 'dark' ? illustrat
 
 const dialog = ref(false)
 
-const openDialog = () => {
+const opendialog = () => {
   dialog.value = true
 }
 </script>
@@ -42,11 +42,11 @@ const openDialog = () => {
             variant="tonal"
             class="mt-4"
             size="small"
-            @click="openDialog"
+            @click="opendialog"
           >
             Пройти мини-гайд
           </VBtn>
-          <RoflDialog :dialog="openDialog" />
+          <RoflDialog v-model="dialog" />
         </VCardText>
       </VCol>
 
@@ -74,3 +74,4 @@ const openDialog = () => {
   inset-inline-end: 3rem;
 }
 </style>
+

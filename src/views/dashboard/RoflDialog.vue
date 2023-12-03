@@ -1,38 +1,36 @@
-<!-- RoflDialog.vue -->
 <template>
   <VDialog
     v-model="dialog"
-    max-width="500px"
+    max-width="600px"
     persistent
   >
     <VCard>
-      <VCardTitle class="text-md-h5 text-primary">
-        Majestic: Привет, ты стал частью большой команды! Ты рад этому?
-      </VCardTitle>
       <VCardText>
-        <VRow>
-          <VCol
-            v-for="(choice, index) in choices"
+        <div v-if="currentIndex === 0">
+          Привет, ты стал частью большой команды!<br>
+          Сейчас я расскажу тебе про 8 заповедей админа:
+        </div>
+        <div v-if="currentIndex > 0">
+          <div
+            v-for="(message, index) in messages"
             :key="index"
-            class="mb-2"
           >
-            <VBtn @click="handleChoice(choice)">
-              {{ choice }}
-            </VBtn>
-          </VCol>
-        </VRow>
-        <VRow v-if="selectedChoice">
-          <VCol>
-            <VCardTitle>{{ selectedChoice.text }}</VCardTitle>
-            <VCardText>{{ selectedChoice.response }}</VCardText>
-          </VCol>
-        </VRow>
-      </VCardText>
-      <VCardActions>
-        <VBtn @click="closeDialog">
+            {{ message }}
+          </div>
+        </div>
+        <VBtn
+          v-if="currentIndex === 0"
+          @click="showNextText"
+        >
+          Далее
+        </VBtn>
+        <VBtn
+          v-else
+          @click="closeDialog"
+        >
           Закрыть
         </VBtn>
-      </VCardActions>
+      </VCardText>
     </VCard>
   </VDialog>
 </template>
@@ -41,19 +39,30 @@
 import { ref } from 'vue'
 
 const dialog = ref(false)
-const selectedChoice = ref(null)
+const currentIndex = ref(0)
+
+const messages = [
+  "1. Админ всегда прав.",
+  "2. Админ не спит, админ отдыхает.",
+  "3. Админ не ест, админ восстанавливает силы.",
+  "4. Кто приходит со своими убеждениями, выходит с убеждениями админа.",
+  "5. Админ не ошибается, админ принимает рискованные решения.",
+  "6. Админ не трус, админ поступает предусмотрительно.",
+  "7. Админ не любопытен, админ должен быть в курсе всех событий.",
+  "8. Если ты думаешь, что админ не прав, то ты не прав.",
+]
+
+const showNextText = () => {
+  currentIndex.value++
+}
 
 const closeDialog = () => {
   dialog.value = false
-  selectedChoice.value = null
-}
-
-const choices = [
-  { text: 'Да', response: 'Это хорошо, а ты знаешь про 8 заповедей админа?' },
-  { text: 'Нет', response: 'Ты, должно быть, шутник.' },
-]
-
-const handleChoice = choice => {
-  selectedChoice.value = choices.find(c => c.text === choice)
 }
 </script>
+
+<style scoped>
+  .v-dialog__content {
+    background-color: #333;
+  }
+</style>
