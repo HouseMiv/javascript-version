@@ -1,10 +1,18 @@
 <script setup>
 import illustrationJohnDark from '@images/cards/illustration-john-dark.png'
 import illustrationJohnLight from '@images/cards/illustration-john-light.png'
+import { ref } from 'vue'
 import { useTheme } from 'vuetify'
+import RoflDialog from './RoflDialog.vue'
 
 const { global } = useTheme()
 const illustrationJohn = computed(() => global.name.value === 'dark' ? illustrationJohnDark : illustrationJohnLight)
+
+const dialog = ref(false)
+
+const openDialog = () => {
+  dialog.value = true
+}
 </script>
 
 <template>
@@ -34,9 +42,11 @@ const illustrationJohn = computed(() => global.name.value === 'dark' ? illustrat
             variant="tonal"
             class="mt-4"
             size="small"
+            @click="openDialog"
           >
-            Пройти мини-игру
+            Пройти мини-гайд
           </VBtn>
+          <RoflDialog :dialog="openDialog" />
         </VCardText>
       </VCol>
 
