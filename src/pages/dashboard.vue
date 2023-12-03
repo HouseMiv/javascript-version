@@ -1,9 +1,48 @@
 <script setup>
 import AnalyticsCongratulations from '@/views/dashboard/AnalyticsCongratulations.vue'
 import AnalyticsProfitReport from '@/views/dashboard/AnalyticsProfitReport.vue'
-import nightavatar from '@images/avatars/nightavatar.jpg'
 import banner1 from '@images/pages/banner.png'
 import News from '../views/dashboard/News.vue'
+
+const user = ref({})
+
+const fetchUserData = async () => {
+  try {
+    const fragment = new URLSearchParams(window.location.hash.slice(1))
+    const accessToken = fragment.get('access_token')
+    const tokenType = fragment.get('token_type')
+
+    const response = await fetch('https://discord.com/api/users/@me', {
+      headers: {
+        Authorization: `${tokenType} ${accessToken}`,
+      },
+    })
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch user data')
+    }
+
+    user.value = await response.json()
+
+    // Сохраняем данные в localStorage (или sessionStorage, если вам нужно временное хранение)
+    localStorage.setItem('user', JSON.stringify(user.value))
+  } catch (error) {
+    console.error('Error fetching user data:', error)
+  }
+}
+
+onMounted(() => {
+  // Проверяем, есть ли данные пользователя в localStorage
+  const storedUser = localStorage.getItem('user')
+
+  if (storedUser) {
+    // Если есть, используем их
+    user.value = JSON.parse(storedUser)
+  } else {
+    // В противном случае, загружаем данные с сервера
+    fetchUserData()
+  }
+})
 </script>
 
 <template>
@@ -32,21 +71,23 @@ import News from '../views/dashboard/News.vue'
       md="4"
     >
       <VCard>
-        <VImg :src="banner1" />
+        <VImg :src="user.banner ? `https://cdn.discordapp.com/banners/${user.id}/${user.banner}.jpg` : banner1" />
 
         <VCardText class="position-relative">
           <!-- User Avatar -->
           <VAvatar
             size="75"
-            class="avatar-center"
-            :image="nightavatar"
-          />
+            color="primary"
+            variant="tonal"
+          >
+            <VImg :src="user.avatar ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.jpg` : '@images/pages/banner.png'" />
+          </VAvatar>
 
           <!-- Title, Subtitle & Action Button -->
           <div class="d-flex justify-space-between flex-wrap pt-8">
             <div class="me-2 mb-2">
               <VCardTitle class="pa-0">
-                HouseMiv
+                {{ user.username }}
               </VCardTitle>
               <VCardSubtitle
                 class="text-caption pa-0"

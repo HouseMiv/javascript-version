@@ -4,7 +4,7 @@ import { onMounted, ref } from 'vue'
 
 const user = ref({})
 
-onMounted(async () => {
+const fetchUserData = async () => {
   try {
     const fragment = new URLSearchParams(window.location.hash.slice(1))
     const accessToken = fragment.get('access_token')
@@ -21,8 +21,24 @@ onMounted(async () => {
     }
 
     user.value = await response.json()
+
+    // Сохраняем данные в localStorage (или sessionStorage, если вам нужно временное хранение)
+    localStorage.setItem('user', JSON.stringify(user.value))
   } catch (error) {
     console.error('Error fetching user data:', error)
+  }
+}
+
+onMounted(() => {
+  // Проверяем, есть ли данные пользователя в localStorage
+  const storedUser = localStorage.getItem('user')
+
+  if (storedUser) {
+    // Если есть, используем их
+    user.value = JSON.parse(storedUser)
+  } else {
+    // В противном случае, загружаем данные с сервера
+    fetchUserData()
   }
 })
 </script>
