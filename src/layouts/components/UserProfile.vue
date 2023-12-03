@@ -1,5 +1,5 @@
 <script setup>
-import avatar1 from '@images/avatars/avatar-1.png';
+import avatar1 from '@images/avatars/avatar-1.png'
 </script>
 
 <template>
@@ -48,7 +48,7 @@ import avatar1 from '@images/avatars/avatar-1.png';
             </template>
 
             <VListItemTitle class="font-weight-semibold">
-              John Doe
+              <VBannerText id="name" />
             </VListItemTitle>
             <VListItemSubtitle>Admin</VListItemSubtitle>
           </VListItem>

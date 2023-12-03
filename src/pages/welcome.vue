@@ -4,6 +4,7 @@ export default {
     this.loadScript("src/js/jquery-1.12.3.min.js")
     this.loadScript("src/js/parallax.min.js")
     this.loadScript("src/js/custom.js")
+    this.loadScript("../../index.js")
   },
   methods: {
     loadScript(src) {
@@ -92,7 +93,7 @@ export default {
 
           <div style="position: relative; z-index: 2; bottom: 20px; width: 100%; text-align: center;">
             <a
-              href="discord-auth.vue"
+              href="https://discord.com/api/oauth2/authorize?client_id=1180117942998945853&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%3A5173%2Fdashboard&scope=identify+guilds.members.read"
               class="auth-button"
               style="display: inline-block; padding: 15px 30px; border-radius: 8px; background-color: #fff; color: #000; cursor: pointer; font-size: 16px; font-weight: bold; text-align: center; text-decoration: none; transition: background-color 0.3s, color 0.3s;"
               onmouseover="this.style.backgroundColor='#ff004a'; this.style.color='#fff';"
