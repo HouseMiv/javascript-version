@@ -1,10 +1,18 @@
 <script setup>
-import illustrationJohnDark from '@images/cards/illustration-john-dark.png';
-import illustrationJohnLight from '@images/cards/illustration-john-light.png';
-import { useTheme } from 'vuetify';
+import illustrationJohnDark from '@images/cards/illustration-john-dark.png'
+import illustrationJohnLight from '@images/cards/illustration-john-light.png'
+import { ref } from 'vue'
+import { useTheme } from 'vuetify'
+import RoflDialog from './RoflDialog.vue'
 
 const { global } = useTheme()
 const illustrationJohn = computed(() => global.name.value === 'dark' ? illustrationJohnDark : illustrationJohnLight)
+
+const dialog = ref(false)
+
+const opendialog = () => {
+  dialog.value = true
+}
 </script>
 
 <template>
@@ -18,24 +26,27 @@ const illustrationJohn = computed(() => global.name.value === 'dark' ? illustrat
       >
         <VCardItem>
           <VCardTitle class="text-md-h5 text-primary">
-            Добро пожаловать в панель Администратора! 🎉
+            Добро пожаловать! 
           </VCardTitle>
         </VCardItem>
 
         <VCardText>
           <span>
-            Здесь вы найдете полезные инструменты и ресурсы для эффективного управления.
+            Здесь каждый раздел призван сделать ваше пребывание у нас полезным, увлекательным и насыщенным положительным опытом. 
             <br>
-            Мы постоянно обновляем наши инструменты и ресурсы, чтобы обеспечить вас всем необходимым для удобного администрирования.
+            <br>
+            Приветствуем в мир возможностей и достижений!
           </span>
           <br>
           <VBtn
-             variant="tonal"
+            variant="tonal"
             class="mt-4"
             size="small"
+            @click="opendialog"
           >
-            Пройти мини-игру
+            Пройти мини-гайд
           </VBtn>
+          <RoflDialog v-model="dialog" />
         </VCardText>
       </VCol>
 
@@ -63,3 +74,4 @@ const illustrationJohn = computed(() => global.name.value === 'dark' ? illustrat
   inset-inline-end: 3rem;
 }
 </style>
+

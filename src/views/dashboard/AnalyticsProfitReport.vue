@@ -1,10 +1,10 @@
 <script setup>
-import { hexToRgb } from '@layouts/utils';
-import VueApexCharts from 'vue3-apexcharts';
+import { hexToRgb } from '@layouts/utils'
+import VueApexCharts from 'vue3-apexcharts'
 import {
-useDisplay,
-useTheme,
-} from 'vuetify';
+  useDisplay,
+  useTheme,
+} from 'vuetify'
 
 
 
@@ -87,15 +87,14 @@ const chartOptions = computed(() => {
 export default {
   methods: {
     currentDateTime() {
-      const current = new Date();
-      const date = current.getFullYear()+'.'+(current.getMonth()+1)+'.'+current.getDate();
-      const time = current.getHours() + ":" + current.getMinutes();
-      const dateTime = date +' '+ time;
-
-      return dateTime;
-    }
-  }
-};
+      const current = new Date()
+      const date = current.getFullYear()+'.'+(current.getMonth()+1)+'.'+current.getDate()
+      const time = current.getHours() + ":" + current.getMinutes()
+      
+      return date +' '+ time
+    },
+  },
+}
 </script>
 
 <template>
@@ -104,10 +103,10 @@ export default {
       <div class="d-flex flex-column justify-space-between gap-y-4">
         <div>
           <h6 class="text-h6 text-no-wrap mb-1">
-            Статистика за неделю
+            Статистика за день
           </h6>
           <VChip color="warning">
-            {{currentDateTime()}}
+            {{ currentDateTime() }}
           </VChip>
         </div>
 

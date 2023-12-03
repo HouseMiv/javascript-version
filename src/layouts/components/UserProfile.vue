@@ -1,5 +1,30 @@
 <script setup>
-import avatar1 from '@images/avatars/avatar-1.png';
+import avatar1 from '@images/avatars/avatar-1.png'
+import { onMounted, ref } from 'vue'
+
+const user = ref({})
+
+onMounted(async () => {
+  try {
+    const fragment = new URLSearchParams(window.location.hash.slice(1))
+    const accessToken = fragment.get('access_token')
+    const tokenType = fragment.get('token_type')
+
+    const response = await fetch('https://discord.com/api/users/@me', {
+      headers: {
+        Authorization: `${tokenType} ${accessToken}`,
+      },
+    })
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch user data')
+    }
+
+    user.value = await response.json()
+  } catch (error) {
+    console.error('Error fetching user data:', error)
+  }
+})
 </script>
 
 <template>
@@ -12,11 +37,10 @@ import avatar1 from '@images/avatars/avatar-1.png';
     bordered
   >
     <VAvatar
-      class="cursor-pointer"
       color="primary"
       variant="tonal"
     >
-      <VImg :src="avatar1" />
+      <VImg :src="user.avatar ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.jpg` : avatar1" />
 
       <!-- SECTION Menu -->
       <VMenu
@@ -41,14 +65,18 @@ import avatar1 from '@images/avatars/avatar-1.png';
                     color="primary"
                     variant="tonal"
                   >
-                    <VImg :src="avatar1" />
+                    <VImg :src="user.avatar ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.jpg` : avatar1" />
                   </VAvatar>
                 </VBadge>
               </VListItemAction>
             </template>
 
+            <VBannerText
+              v-if="user.username"
+              :id="user.username"
+            />
             <VListItemTitle class="font-weight-semibold">
-              John Doe
+              {{ user.username }}
             </VListItemTitle>
             <VListItemSubtitle>Admin</VListItemSubtitle>
           </VListItem>

@@ -33,8 +33,28 @@ const router = createRouter({
           component: () => import('../pages/tables.vue'),
         },
         {
+          path: 'statistic',
+          component: () => import('../pages/statistic.vue'),
+        },
+        {
+          path: 'testing',
+          component: () => import('../pages/testing.vue'),
+        },
+        {
+          path: 'binder',
+          component: () => import('../pages/binder.vue'),
+        },
+        {
+          path: 'vacation',
+          component: () => import('../pages/vacation.vue'),
+        },
+        {
           path: 'form-layouts',
           component: () => import('../pages/form-layouts.vue'),
+        },
+        {
+          path: 'base',
+          component: () => import('../pages/base.vue'),
         },
       ],
     },
@@ -45,6 +65,10 @@ const router = createRouter({
         {
           path: '/:pathMatch(.*)*',
           component: () => import('../pages/[...all].vue'),
+        },
+        {
+          path: '/welcome',
+          component: () => import('../pages/welcome.vue'),
         },
       ],
     },

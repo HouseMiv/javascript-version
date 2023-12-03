@@ -1,15 +1,15 @@
 <script setup>
-import VueApexCharts from 'vue3-apexcharts'
-import { useTheme } from 'vuetify'
 import statsVerticalChart from '@images/cards/chart-success.png'
 import statsVerticalPaypal from '@images/cards/paypal-error.png'
 import statsVerticalWallet from '@images/cards/wallet-primary.png'
 import { hexToRgb } from '@layouts/utils'
+import VueApexCharts from 'vue3-apexcharts'
+import { useTheme } from 'vuetify'
 
 const vuetifyTheme = useTheme()
 
 const series = {
-  income: [{
+  day: [{
     data: [
       24,
       21,
@@ -21,7 +21,7 @@ const series = {
       29,
     ],
   }],
-  expenses: [{
+  week: [{
     data: [
       24,
       21,
@@ -33,7 +33,19 @@ const series = {
       29,
     ],
   }],
-  profit: [{
+  month: [{
+    data: [
+      24,
+      21,
+      30,
+      22,
+      42,
+      26,
+      35,
+      35,
+    ],
+  }],
+  year: [{
     data: [
       24,
       21,
@@ -47,11 +59,11 @@ const series = {
   }],
 }
 
-const currentTab = ref('income')
+const currentTab = ref('day')
 
 const tabData = computed(() => {
   const data = {
-    income: {
+    day: {
       avatar: statsVerticalWallet,
       title: 'Total Income',
       stats: '$459.1k',
@@ -59,7 +71,7 @@ const tabData = computed(() => {
       profitLossAmount: '6.5k',
       compareToLastWeek: '$39k',
     },
-    expenses: {
+    week: {
       avatar: statsVerticalPaypal,
       title: 'Total Expenses',
       stats: '$316.5k',
@@ -67,7 +79,15 @@ const tabData = computed(() => {
       profitLossAmount: '7.2k',
       compareToLastWeek: '$16k',
     },
-    profit: {
+    month: {
+      avatar: statsVerticalChart,
+      title: 'Total Profit',
+      stats: '$147.9k',
+      profitLoss: 35.1,
+      profitLossAmount: '4.5k',
+      compareToLastWeek: '$28k',
+    },
+    year: {
       avatar: statsVerticalChart,
       title: 'Total Profit',
       stats: '$147.9k',
@@ -192,14 +212,17 @@ const chartConfig = computed(() => {
         v-model="currentTab"
         class="v-tabs-pill"
       >
-        <VTab value="income">
-          Income
+        <VTab value="day">
+          День
         </VTab>
-        <VTab value="expenses">
-          Expenses
+        <VTab value="week">
+          Неделя
         </VTab>
-        <VTab value="profit">
-          Profit
+        <VTab value="month">
+          Месяц
+        </VTab>
+        <VTab value="year">
+          Год
         </VTab>
       </VTabs>
     </VCardItem>

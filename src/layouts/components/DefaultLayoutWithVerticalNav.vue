@@ -51,18 +51,96 @@ const upgradeBanner = computed(() => {
           to: '/dashboard',
         }"
       />
-      <VerticalNavLink
-        :item="{
-          title: 'Профиль',
-          icon: 'mdi-account-cog-outline',
-          to: '/account-settings',
-        }"
-      />
 
       <!-- 👉 User Interface -->
       <VerticalNavSectionTitle
         :item="{
-          heading: 'User Interface',
+          heading: 'Информация',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Статистика',
+          icon: 'mdi-note-check-outline',
+          to: '/statistic',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'База знаний',
+          icon: 'bx-book-content',
+          to: '/base',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Обучение',
+          icon: 'mdi-ab-testing',
+          to: '/testing',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Биндер',
+          icon: 'mdi-file-compare',
+          to: '/binder',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Отпуск',
+          icon: 'mdi-coffee',
+          to: '/vacation',
+        }"
+      />
+      <VerticalNavSectionTitle
+        :item="{
+          heading: 'Leader info',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Статистика лидеров',
+          icon: 'bxs-book-open',
+          to: '/leader-online',
+        }"
+      />
+      <VerticalNavSectionTitle
+        :item="{
+          heading: 'Server Administration',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Admins',
+          icon: 'bx-male-female',
+          to: '/admins',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Admin Online',
+          icon: 'bxs-zap',
+          to: '/admin-online',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Edit Base',
+          icon: 'bxs-edit',
+          to: '/editbase',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Answer Reports',
+          icon: 'bxs-book-alt',
+          to: '/answer-reports',
+        }"
+      />
+      <VerticalNavSectionTitle
+        :item="{
+          heading: 'Admin develop',
         }"
       />
       <VerticalNavLink
@@ -107,6 +185,10 @@ const upgradeBanner = computed(() => {
     <!-- 👉 Footer -->
     <template #footer>
       <Footer />
+    </template>
+
+    <template #discord>
+      <Discord />
     </template>
   </VerticalNavLayout>
 </template>

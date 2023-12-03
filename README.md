@@ -1,17 +1,15 @@
-## Project Setup
+## Чтобы запустить проект
 
 ```sh
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### Чтобы сохранить проект в GitHub
 
 ```sh
-npm run build
+git switch develop
+git add .
+git commit -m"Название исправлений"
+git push -f origin develop
 ```
